@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="74" height="74" viewBox="0 0 74 74">
+  <defs>
+    <filter id="Ellipse_84" x="0" y="0" width="74" height="74" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <clipPath id="clip-path">
+      <path id="path1901" d="M0-682.665H31.1v31.1H0Z" transform="translate(0 682.665)"/>
+    </clipPath>
+  </defs>
+  <g id="Group_5138" data-name="Group 5138" transform="translate(-178.3 -838)">
+    <g transform="matrix(1, 0, 0, 1, 178.3, 838)" filter="url(#Ellipse_84)">
+      <g id="Ellipse_84-2" data-name="Ellipse 84" transform="translate(9 9)" fill="#c00d0d" stroke="#ededed" stroke-width="1">
+        <circle cx="28" cy="28" r="28" stroke="none"/>
+        <circle cx="28" cy="28" r="27.5" fill="none"/>
+      </g>
+    </g>
+    <g id="add-group" transform="translate(198.601 858.948)">
+      <g id="g1895" transform="translate(0 0.002)">
+        <g id="g1897">
+          <g id="g1899" clip-path="url(#clip-path)">
+            <g id="g1905" transform="translate(6.439 9.529)">
+              <path id="path1907" d="M0-104.352a4.981,4.981,0,0,1,4.981-4.981,4.981,4.981,0,0,1,4.981,4.981,4.981,4.981,0,0,1-4.981,4.981A4.981,4.981,0,0,1,0-104.352Z" transform="translate(0 109.333)" fill="rgba(0,0,0,0)" stroke="#ededed" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+            <g id="g1909" transform="translate(1.213 19.527)">
+              <path id="path1911" d="M-272.377-217h-10.569a2.43,2.43,0,0,1-2.313-3.174,10.615,10.615,0,0,1,10.061-7.183,10.31,10.31,0,0,1,5.919,1.856" transform="translate(285.378 227.361)" fill="rgba(0,0,0,0)" stroke="#ededed" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+            <g id="g1913" transform="translate(19.012 1.215)">
+              <path id="path1915" d="M0-104.352a4.981,4.981,0,0,1,4.981-4.981,4.981,4.981,0,0,1,4.981,4.981,4.981,4.981,0,0,1-4.981,4.981A4.981,4.981,0,0,1,0-104.352Z" transform="translate(0 109.333)" fill="rgba(0,0,0,0)" stroke="#ededed" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+            <g id="g1917" transform="translate(16.438 11.213)">
+              <path id="path1919" d="M0-67.951a10.329,10.329,0,0,1,7.528-3.243,10.31,10.31,0,0,1,5.918,1.856" transform="translate(0 71.194)" fill="rgba(0,0,0,0)" stroke="#ededed" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+            <g id="g1921" transform="translate(25.329 20.774)">
+              <path id="path1923" d="M0-190.888V-200" transform="translate(0 199.999)" fill="rgba(0,0,0,0)" stroke="#ededed" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+            <g id="g1925" transform="translate(20.774 25.329)">
+              <path id="path1927" d="M-190.888,0H-200" transform="translate(199.999)" fill="rgba(0,0,0,0)" stroke="#ededed" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "109260424616",
+    "project_id": "ferrplay-cd8fc",
+    "storage_bucket": "ferrplay-cd8fc.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:109260424616:android:3c853f313c59705487c99d",
+        "android_client_info": {
+          "package_name": "pl.com.verbum.ferro.ferrplay"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaIpWwCDYYb3zXiK19NWmtawVyeMlcQco"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

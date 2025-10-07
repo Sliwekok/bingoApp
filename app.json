@@ -1,0 +1,83 @@
+{
+  "expo": {
+    "name": "bingoApp",
+    "slug": "bingoApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "CFBundleAllowMixedLocalizations": true,
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "bundleIdentifier": "",
+      "googleServicesFile": ""
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "",
+      "googleServicesFile": ""
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "locales": {
+      "pl": "./src/Assets/Languages/polish.json"
+    },
+    "plugins": [
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./src/Assets/Fonts/Montserrat_Regular.ttf",
+            "./src/Assets/Fonts/Montserrat_Bold.ttf",
+            "./src/Assets/Fonts/Montserrat_Bold_Italic.ttf"
+          ]
+        }
+      ],
+      "expo-localization",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "image": "./assets/splash-icon.png",
+            "backgroundColor": "#ffffff"
+          },
+          "imageWidth": 200
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "defaultChannel": "default"
+        }
+      ]
+    ],
+    "owner": "Dominik",
+    "extra": {
+      "apiUrl": "http://bingo.dev-verbum.pl/api/",
+      "baseUrl": "http://bingo.dev-verbum.pl/",
+      "apiKey": "z0CwprChJLJSqPo0O2oTsx4rx8BaZS4J",
+      "supportsRTL": true,
+      "eas": {
+        "projectId": ""
+      }
+    }
+  }
+}

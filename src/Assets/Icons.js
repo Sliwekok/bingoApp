@@ -1,0 +1,31 @@
+const icons = {
+  checked: require("./Icons/checked.png"),
+  unchecked: require("./Icons/unchecked.png"),
+  defaultAvatar: require("./Icons/default_avatar.png"),
+  editAvatar: require("./Icons/edit_avatar.png"),
+  ferrPlayLogo: require("./Icons/ferrplay_logo.png"),
+  newsExample: require("./Icons/news_example.png"),
+  processingTime: require("./Icons/processing-time.png"),
+  workInProgress: require("./Icons/work-in-progress.png"),
+  cancelled: require("./Icons/cancelled.png"),
+  scanQr: require("./Icons/scan_qr.png"),
+  awardCategoryImage: require("./Icons/categoty_image.png"),
+  awardImage: require("./Icons/award_image.png"),
+  rankBgImage: require("./Icons/rank_bg_image.png"),
+  cartSummary: require("./Icons/cart_summary.png"),
+  knowldegeExample: require("./Icons/knowledge_example.png"),
+  cloud: require("./Icons/cloud.png"),
+  lock: require("./Icons/lock.png"),
+  exampleImageAnswer: require("./Icons/example_image_answer.png"),
+  exampleImageProduct: require("./Icons/example_product.jpg"),
+  diamondLine: require("./Icons/diamond-line.png"),
+  tutorialIntro: require("./Icons/tutorial_intro.png"),
+  tutorialIntroTrader: require("./Icons/tutorial_intro_trader.png"),
+  prepaidImage: require("./Icons/prepaid_image.png"),
+  inviteInstallerBg: require("./Icons/invite-installer-bg.png"),
+  inviteInstallerPage: require("./Icons/invite-installer-page.png"),
+  inviteInstallerQr: require("./Icons/invite-installer-qr.png"),
+  inviteTrader: require("./Icons/invite_trader.png")
+};
+
+export default icons;

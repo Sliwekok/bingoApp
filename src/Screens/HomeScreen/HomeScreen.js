@@ -15,18 +15,17 @@ const HomeScreen = () => {
     const [category, setCategory] = useState();
     const [userRank, setUserRank] = useState();
     const [winner, setWinner] = useState();
+    const [userRanking, setUserRanking] = useState();
 
-    useFocusEffect(
-        useCallback(() => {
-            fetchData((res) => {
-                setGame(res.data.game);
-                setRanking(res.data.ranking);
-                setCategory(res.data.category);
-                setUserRank(res.data.userRank);
-                setWinner(res.data.winner);
-            }, "home");
-        }, [])
-    );
+    useEffect(() => {
+        fetchData((res) => {
+            setGame(res.data.game);
+            setRanking(res.data.ranking);
+            setCategory(res.data.category);
+            setUserRank(res.data.userRank);
+            setWinner(res.data.winner);
+        }, "home");
+    }, []);
 
     return (
       <UserBackground noPadding={true} >
@@ -34,16 +33,28 @@ const HomeScreen = () => {
           <View>
             <View style={styles.gamesContainer}>
                 <RegularText style={styles.textLeft}>{i18n.t("CURRENT_WEEK")}</RegularText>
-                <RegularText style={styles.textRight}>{game.week ?? '-'}</RegularText>
+                <RegularText style={styles.textRight}>{game?.week ?? '-'}</RegularText>
             </View>
-            {/*<View style={styles.gamesContainer}>*/}
-            {/*    <RegularText style={styles.textLeft}>Zwycięzca</RegularText>*/}
-            {/*    <RegularText style={styles.textRight}>{winner.name ?? ''}</RegularText>*/}
-            {/*</View>*/}
+            <View style={styles.gamesContainer}>
+                <RegularText style={styles.textLeft}>{i18n.t("GAME_WINNER")}</RegularText>
+                <RegularText style={styles.textRight}>{winner?.name ?? "do rozstrzygnięcia"}</RegularText>
+            </View>
             <View style={styles.rankingContainer}>
+                <RegularText style={styles.textLeft}>{i18n.t("RANK_CATEGORY")}</RegularText>
+                <RegularText style={styles.textRight}>{category?.title ?? '-'}</RegularText>
+            </View>
+            <View style={styles.gamesContainer}>
                 <RegularText style={styles.textLeft}>{i18n.t("RANK_POSITION")}</RegularText>
                 <RegularText style={styles.textRight}>{userRank ?? '-'}</RegularText>
             </View>
+            <View style={styles.gamesContainer}>
+                <RegularText style={styles.textLeft}>{i18n.t("RANK_GAMES_QTY")}</RegularText>
+                <RegularText style={styles.textRight}>{ranking && ranking[userRank - 1] ? ranking[userRank - 1].games_count : 0}</RegularText>
+            </View>
+              <View style={styles.gamesContainer}>
+                  <RegularText style={styles.textLeft}>{i18n.t("RANK_POINTS")}</RegularText>
+                  <RegularText style={styles.textRight}>{ranking && ranking[userRank - 1] ? ranking[userRank - 1].points : 0}</RegularText>
+              </View>
           </View>
       </UserBackground>
     );

@@ -13,7 +13,7 @@ const AuthStack = () => {
         <Drawer.Screen name={"Start"} options={{ title: "Start" }}>
             {(props) => <HomeScreen {...props} />}
         </Drawer.Screen>
-        <Drawer.Screen name={"Game"} options={{ title: "Game" }}>
+        <Drawer.Screen name={"Gra"} options={{ title: "Gra" }}>
             {(props) => <GameScreen {...props} />}
         </Drawer.Screen>
         <Drawer.Screen name={"Ranking"} options={{ title: "Ranking" }}>

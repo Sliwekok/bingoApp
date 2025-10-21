@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
   },
   textRight: {
     textAlign: "right",
-    width: "25%",
+    width: "50%",
   },
   textLeft: {
     textAlign: "left",
-    width: "75%",
+    width: "50%",
   },
 });
 

@@ -3,68 +3,59 @@ import { StyleSheet } from "react-native";
 import colors from "../../Assets/Color";
 
 const styles = StyleSheet.create({
-  introContainer: {
-    paddingHorizontal: ScreenHeight * 0.05,
-    backgroundColor: colors.davyGray,
-  },
-  myPosConatiner: {
-    backgroundColor: colors.internationalOrange,
-    borderRadius: 50,
-    backgroundColor: colors.tuscany,
+  category: {
+    paddingHorizontal: ScreenWidth * 0.05,
+    paddingVertical: 10,
     display: "flex",
     flexDirection: "row",
-    height: 75,
-    marginTop: 20,
-    overflow: "hidden",
-  },
-  myPostContainerLeftPart: {
-    flex: 0.5,
-    display: "flex",
     alignItems: "center",
-    justifyContent: "center",
   },
-  myPostContainerLeftText: {
-    color: colors.brightGray,
-    fontSize: 11,
-  },
-  myPostContainerRightPart: {
-    flex: 0.5,
-  },
-  currPostContainer: {
-    height: 75,
-    width: 75,
-    backgroundColor: colors.internationalOrange,
-    borderColor: colors.brightGray,
-    borderWidth: 1,
-    borderRadius: 50,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
+  rankingRow: {
+    container: {
+      flexDirection: "row",
+      alignItems: "center",
+      paddingVertical: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.grayDarker,
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
-  myPosText: {
-    fontSize: 16,
-    color: colors.brightGray,
-  },
-  introText: {
-    color: colors.brightGray,
-    textAlign: "center",
-    fontSize: 12,
-    marginVertical: 20,
+    cell: {
+      justifyContent: "center",
+      alignItems: "center",
+      paddingHorizontal: 5,
+      fontSize: 14,
+    },
+    colPos: {
+      flex: 0.2, // smaller column
+    },
+    colUser: {
+      flex: 0.8, // wider for usernames
+      alignItems: "flex-start",
+    },
+    colPoints: {
+      flex: 0.4,
+    },
+    colGames: {
+      flex: 0.4,
+    },
+    posText: {
+      color: colors.grayDarker,
+      fontSize: 14,
+    },
+    posTextTop3: {
+      color: colors.golden,
+    },
+    posTextCurrentUser: {
+      fontWeight: "bold",
+      color: colors.golden,
+    },
+    cellText: {
+      fontSize: 12,
+    }
   },
   tableHeader: {
     paddingHorizontal: ScreenWidth * 0.05,
     borderBottomWidth: 1,
-    borderBottomColor: colors.blackOlive,
+    borderBottomColor: colors.golden,
     display: "flex",
     flexDirection: "row",
   },
@@ -77,39 +68,6 @@ const styles = StyleSheet.create({
   },
   headerCellText: {
     fontSize: 11,
-  },
-  tableData: {
-    paddingHorizontal: ScreenWidth * 0.05,
-  },
-  rankingRow: {
-    container: {
-      display: "flex",
-      flexDirection: "row",
-      paddingVertical: 10,
-      borderBottomWidth: 1,
-      borderBottomColor: colors.philippineSilver,
-    },
-    left: {
-      flex: 0.5,
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    posText: {
-      color: colors.internationalOrange,
-      fontSize: 16,
-    },
-    right: {
-      flex: 0.5,
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  },
-  backgroundImageContainer: {
-    borderRadius: 50,
   },
 });
 

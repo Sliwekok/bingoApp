@@ -29,8 +29,8 @@ const LoginScreen = () => {
   const { fetchData } = UseFetch();
   const { showError } = useContext(ErrorContext);
 
-  const [loginField, setLoginField] = useState(__DEV__ ? "dominik" : "");
-  const [password, setPassword] = useState(__DEV__ ? "Verbum4554" : "");
+  const [loginField, setLoginField] = useState(__DEV__ ? "test  " : "");
+  const [password, setPassword] = useState(__DEV__ ? "Verbum@137" : "");
 
   useEffect(() => {}, []);
 

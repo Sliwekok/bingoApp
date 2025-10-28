@@ -18,15 +18,15 @@ const RankingScreen = () => {
     const [categories, setCategories] = useState();
 
     useFocusEffect(
-    useCallback(() => {
-      let response = fetchData((res) => {
-        setRanking(res.data.ranking);
-        setUserRank(res.data.userRank);
-        setUser(res.data.user);
-        setCategory(res.data.category);
-        setCategories(res.data.categories);
-      }, "ranking");
-    }, [])
+        useCallback(() => {
+          let response = fetchData((res) => {
+            setRanking(res.data.ranking);
+            setUserRank(res.data.userRank);
+            setUser(res.data.user);
+            setCategory(res.data.category);
+            setCategories(res.data.categories);
+          }, "ranking");
+        }, [])
     );
 
   return (

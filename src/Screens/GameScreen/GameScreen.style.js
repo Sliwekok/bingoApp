@@ -1,115 +1,66 @@
 import { ScreenHeight, ScreenWidth } from "@rneui/base";
-import { StyleSheet } from "react-native";
+import {Dimensions, StyleSheet} from "react-native";
 import colors from "../../Assets/Color";
 
+const { width } = Dimensions.get("window");
+const BOX_SIZE = width / 5 - 8;
+
 const styles = StyleSheet.create({
-  introContainer: {
-    paddingHorizontal: ScreenHeight * 0.05,
-    backgroundColor: colors.davyGray,
-  },
-  myPosConatiner: {
-    borderRadius: 50,
-    backgroundColor: colors.tuscany,
-    display: "flex",
-    flexDirection: "row",
-    height: 75,
-    marginTop: 20,
-    overflow: "hidden",
-  },
-  myPostContainerLeftPart: {
-    flex: 0.5,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  myPostContainerLeftText: {
-    color: colors.brightGray,
-    fontSize: 11,
-  },
-  myPostContainerRightPart: {
-    flex: 0.5,
-  },
-  currPostContainer: {
-    height: 75,
-    width: 75,
-    backgroundColor: colors.internationalOrange,
-    borderColor: colors.brightGray,
-    borderWidth: 1,
-    borderRadius: 50,
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
+    showWin: {
+        fontSize: 14,
+        color: colors.grayDarker,
+        fontWeight: "bolder",
+        textAlign: "center",
+        marginVertical: 10,
+        paddingVertical: 10
     },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-
-    elevation: 5,
-  },
-  myPosText: {
-    fontSize: 16,
-    color: colors.brightGray,
-  },
-  introText: {
-    color: colors.brightGray,
-    textAlign: "center",
-    fontSize: 12,
-    marginVertical: 20,
-  },
-  tableHeader: {
-    paddingHorizontal: ScreenWidth * 0.05,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.blackOlive,
-    display: "flex",
-    flexDirection: "row",
-  },
-  headerCell: {
-    flex: 0.5,
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingVertical: 15,
-  },
-  headerCellText: {
-    fontSize: 11,
-  },
-  tableData: {
-    paddingHorizontal: ScreenWidth * 0.05,
-  },
-  rankingRow: {
-    container: {
-      display: "flex",
-      flexDirection: "row",
-      paddingVertical: 10,
-      borderBottomWidth: 1,
-      borderBottomColor: colors.philippineSilver,
+    board: {
+        table: {
+            alignItems: "center",
+            justifyContent: "center",
+            paddingVertical: 10,
+        },
+        row: {
+            flexDirection: "row",
+            justifyContent: "center",
+        },
+        cell: {
+            width: BOX_SIZE,
+            height: BOX_SIZE,
+            borderWidth: 1,
+            borderColor: colors.grayDarker,
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: colors.white,
+        },
+        text: {
+            textAlign: "center",
+            fontSize: 10,
+            color: colors.black,
+        },
+        free: {
+            backgroundColor: colors.golden,
+        },
+        selected: {
+            backgroundColor: colors.golden,
+        },
+        disabled: {
+            opacity: 0.5,
+        },
     },
-    left: {
-      flex: 0.5,
-      display: "flex",
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "space-between",
-    },
-    posText: {
-      color: colors.internationalOrange,
-      fontSize: 16,
-    },
-    right: {
-      flex: 0.5,
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-  },
-  backgroundImageContainer: {
-    borderRadius: 50,
-  },
+    category: {
+        container: {
+            width: ScreenWidth,
+            marginVertical: 10
+        },
+        header: {
+            fontSize: 16,
+            color: colors.grayDarker,
+            fontWeight: "bolder",
+            textAlign: "center",
+            width: "100%",
+        }
+    }
 });
 
 export default styles;

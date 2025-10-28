@@ -28,6 +28,9 @@
   "RANK_GAMES_PLAYED": "Rozegrane",
   "CURRENT_WEEK": "Obecny tydzień",
   "GAME_WINNER": "Zwycięzca",
+  "GAME_WIN_MESSAGE": "Bingo zakończone! Wróć w kolejnym tygodniu aby zagrać ponownie.",
+  "GAME_OPTION_NO_CHECKED": "Brak tego pola w Bingo",
+  "GAME_CHANGE_CATEGORY": "Zmień kategorię",
 
   "LP_FORGOT_PASSWORD": "Zapomniałem hasła",
   "LP_Only_for_instalator": "Tylko dla instalatora",

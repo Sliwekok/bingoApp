@@ -1,4 +1,4 @@
-import { View, Text, ImageBackground, Image } from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
 import React, { useCallback, useState } from "react";
 import UserBackground from "../../Components/Backgrounds/UserBackground";
 import ScreenTitle from "../../Components/Elements/ScreenTitle";
@@ -6,91 +6,173 @@ import i18n from "../../../I18n";
 import RegularText from "../../Components/Text/RegularText";
 import styles from "./GameScreen.style";
 import BoldText from "../../Components/Text/BoldText";
-import UserIconSVG from "../../Assets/Icons/user_icon.svg";
-import { BackgroundImage } from "@rneui/base";
-import icons from "../../Assets/Icons";
-import { useFocusEffect } from "@react-navigation/native";
 import UseFetch from "../../Hooks/useFetch";
+import { useFocusEffect } from "@react-navigation/native";
+import SearchPicker from "../../Components/Picker/SearchPicker";
+import {isDisabled} from "react-native/Libraries/LogBox/Data/LogBoxData";
 
-const RankingScreen = () => {
-  const { fetchData } = UseFetch();
+const GameScreen = () => {
+    const { fetchData } = UseFetch();
 
+    const [game, setGame] = useState();
+    const [categories, setCategories] = useState();
+    const [options, setOptions] = useState();
+    const [selectedItem, setSelectedItem] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [checked, setChecked] = useState(true);
 
-
-  return (
-    <UserBackground noPadding={true}>
-      <ScreenTitle title={i18n.t("SCREEN_NAME_HOME")} withBack={true}/>
-      <View style={styles.introContainer}>
-        <View style={styles.myPosConatiner}>
-          <View style={styles.myPostContainerLeftPart}>
-            <BoldText style={styles.myPostContainerLeftText}>
-              {i18n.t("RNK_My_position")}
-            </BoldText>
-          </View>
-          <View style={styles.myPostContainerRightPart}>
-            <ImageBackground
-              source={icons.rankBgImage}
-              style={styles.backgroundImageContainer}
-            >
-              <View style={styles.currPostContainer}>
-                {myRank && (
-                  <BoldText style={styles.myPosText}>{myRank}</BoldText>
-                )}
-              </View>
-            </ImageBackground>
-          </View>
-        </View>
-
-        <RegularText style={styles.introText}>
-          {i18n.t("RNK_Intro")}
-        </RegularText>
-      </View>
-
-      <View>
-        <View style={styles.tableHeader}>
-          <View style={styles.headerCell}>
-            <BoldText style={styles.headerCellText}>
-              {i18n.t("RNK_User")}
-            </BoldText>
-          </View>
-          <View style={styles.headerCell}>
-            <BoldText style={styles.headerCellText}>
-              {i18n.t("RNK_Points_val")}
-            </BoldText>
-          </View>
-        </View>
-        <View style={styles.tableData}>
-          {ranking.map((user, index) => {
-            return (
-              <RankingRow
-                pos={index + 1}
-                avatar={{ uri: user.avatar }}
-                user={user.initials}
-                points={user.points}
-              />
+    useFocusEffect(
+        useCallback(() => {
+            setLoading(true);
+            fetchData(
+                (res) => {
+                    setGame(res.data.game);
+                    setCategories(res.data.categories);
+                    setOptions(res.data.options);
+                    setLoading(false);
+                },
+                "game"
             );
-          })}
-        </View>
-      </View>
-    </UserBackground>
-  );
+        }, [])
+    );
+
+    const changeCategory = async(categoryId) => {
+        try {
+            await fetchData(
+                (res) => {
+                    setLoading(true);
+                    fetchData(
+                        (res) => {
+                            setGame(res.data.game);
+                            setCategories(res.data.categories);
+                            setOptions(res.data.options);
+                            setLoading(false);
+                        },
+                        "game"
+                    );
+                },
+                'changeCategory',
+                '',
+                {category: categoryId},
+            )
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const setAsChecked = async (optionId) => {
+        setSelectedItem(optionId);
+        try {
+            await fetchData(
+                (res) => {
+                    if (res.checked === true) {
+                        setGame((prevGame) => {
+                            const newContent = prevGame.content.map((row) =>
+                                row.map((col) =>
+                                    col.option === optionId
+                                        ? {
+                                            ...col,
+                                            checked: !col.checked,
+                                            title: res.title,
+                                        }
+                                        : col
+                                )
+                            );
+
+                            if (res.status == 'finished') {
+                                return { ...prevGame, status: 'finished'};
+                            }
+
+                            return { ...prevGame, content: newContent };
+                        });
+                    }
+
+                    setOptions(prevOptions =>
+                        prevOptions.filter(option => option.id !== optionId)
+                    );
+
+                    setChecked(res.checked);
+
+                },
+                "toggleOption/" + optionId,
+                {},
+            );
+        } catch (err) {
+            console.error("Error toggling option:", err);
+        }
+    };
+
+    if (loading || !game) {
+        return (
+            <UserBackground noPadding={true}>
+                <ScreenTitle title={i18n.t("SCREEN_NAME_GAME")} withBack={true} />
+                <RegularText>Loading...</RegularText>
+            </UserBackground>
+        );
+    }
+
+    return (
+        <UserBackground noPadding={true}>
+            <ScreenTitle title={i18n.t("SCREEN_NAME_GAME")} withBack={true} />
+
+            <View style={styles.category}>
+                {
+                    game.status === "finished" ?
+                        <BoldText styles={styles.showWin}>{i18n.t("GAME_WIN_MESSAGE")}</BoldText>
+                    :
+                        <SearchPicker
+                            items={options}
+                            selected={selectedItem}
+                            onValueChange={(optionId) => setAsChecked(optionId)}
+                            labelField="option"
+                            valueField="id"
+                            placeholder="Wybierz opcję..."
+                        />
+                }
+            </View>
+
+            <View style={styles.board.table}>
+                {game.content.map((row, rowIndex) => (
+                    <View key={rowIndex} style={styles.board.row}>
+                        {row.map((col, colIndex) => {
+                            const isFree = col.title === "FREE";
+                            const isSelected = col.checked || isFree;
+                            const isDisabled = game.status === "finished";
+
+                            return (
+                                <TouchableOpacity
+                                    key={colIndex}
+                                    activeOpacity={0.7}
+                                    disabled={isDisabled || isFree}
+                                    style={[
+                                        styles.board.cell,
+                                        isFree && styles.board.free,
+                                        isSelected && styles.board.selected,
+                                        isDisabled && styles.board.disabled,
+                                    ]}
+                                >
+                                    <Text style={styles.board.text}>
+                                        {isFree ? "FREE" : col.title}
+                                    </Text>
+                                </TouchableOpacity>
+                            );
+                        })}
+                    </View>
+                ))}
+                {!checked && <BoldText style={styles.showWin}>{i18n.t("GAME_OPTION_NO_CHECKED")}</BoldText>}
+            </View>
+            <View style={styles.category.container}>
+                <RegularText style={styles.category.header}>{i18n.t("GAME_CHANGE_CATEGORY")}</RegularText>
+                <SearchPicker
+                    items={categories}
+                    onValueChange={(categoryId) => changeCategory(categoryId)}
+                    labelField="title"
+                    valueField="id"
+                    placeholder="Wybierz kategorię..."
+                />
+            </View>
+        </UserBackground>
+    );
 };
 
-const RankingRow = ({ pos, avatar, user, points }) => {
-  return (
-    <View style={styles.rankingRow.container}>
-      <View style={styles.rankingRow.left}>
-        <BoldText style={styles.rankingRow.posText}>{pos}.</BoldText>{" "}
-        <Image source={avatar} style={{ height: 45, aspectRatio: 1 }} />
-        <RegularText>{user}</RegularText>
-      </View>
-      <View style={styles.rankingRow.right}>
-        <BoldText>
-          {points} {i18n.t("RNK_Points_shortcut")}
-        </BoldText>
-      </View>
-    </View>
-  );
-};
-
-export default RankingScreen;
+export default GameScreen;

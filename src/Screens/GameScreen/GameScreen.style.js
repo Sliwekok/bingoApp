@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     category: {
         container: {
             width: ScreenWidth,
-            marginVertical: 10
+            marginVertical: 50
         },
         header: {
             fontSize: 16,

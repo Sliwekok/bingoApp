@@ -37,15 +37,16 @@ const GameScreen = () => {
     );
 
     const changeCategory = async(categoryId) => {
+        if (categoryId === null) return;
         try {
             await fetchData(
                 (res) => {
                     setLoading(true);
                     fetchData(
-                        (res) => {
-                            setGame(res.data.game);
-                            setCategories(res.data.categories);
-                            setOptions(res.data.options);
+                        (resGame) => {
+                            setGame(resGame.data.game);
+                            setCategories(resGame.data.categories);
+                            setOptions(resGame.data.options);
                             setLoading(false);
                         },
                         "game"

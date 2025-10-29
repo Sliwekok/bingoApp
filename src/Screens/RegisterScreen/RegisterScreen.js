@@ -1,5 +1,5 @@
 import { View, TouchableOpacity } from "react-native";
-import React, { useState } from "react";
+import React, {useContext, useState} from "react";
 import { useNavigation } from "@react-navigation/native";
 import { ArrowLeft } from "phosphor-react-native";
 
@@ -12,6 +12,7 @@ import DefaultButton from "../../Components/Buttons/DefaultButton";
 import colors from "../../Assets/Color";
 import i18n from "../../../I18n";
 import UseFetch from "../../Hooks/useFetch";
+import ErrorContext from "../../Contexts/ErrorContext";
 
 const RegisterScreen = () => {
   const navigation = useNavigation();
@@ -21,14 +22,23 @@ const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
+  const { showError } = useContext(ErrorContext);
   const { fetchData } = UseFetch();
   const registerUser = () => {
     setIsLoading(true);
     fetchData(
         (res) => {
           console.log("Registration successful:", res);
-          navigation.navigate("Login");
+          setName('');
+          setLogin('');
+          setPassword('');
+          setEmail('');
+          if (res.status === "success") {
+            navigation.navigate("Login");
+            showError({ message: res.message });
+          } else {
+            showError({ message: res.message || "Wystąpił niespodziewany błąd" });
+          }
         },
         "register",
         {},

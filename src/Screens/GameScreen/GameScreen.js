@@ -9,7 +9,6 @@ import BoldText from "../../Components/Text/BoldText";
 import UseFetch from "../../Hooks/useFetch";
 import { useFocusEffect } from "@react-navigation/native";
 import SearchPicker from "../../Components/Picker/SearchPicker";
-import {isDisabled} from "react-native/Libraries/LogBox/Data/LogBoxData";
 
 const GameScreen = () => {
     const { fetchData } = UseFetch();

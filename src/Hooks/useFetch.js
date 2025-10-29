@@ -57,7 +57,7 @@ const UseFetch = () => {
     try {
       let response = await fetch(url, options);
       let responseJson = await response.json();
-      console.log(responseJson);
+      console.log(responseJson, postData);
       if (responseJson.status !== 'success') {
         if (onError) {
           await onError();

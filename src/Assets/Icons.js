@@ -3,7 +3,7 @@ const icons = {
   unchecked: require("./Icons/unchecked.png"),
   defaultAvatar: require("./Icons/default_avatar.png"),
   editAvatar: require("./Icons/edit_avatar.png"),
-  ferrPlayLogo: require("./Icons/ferrplay_logo.png"),
+  ferrPlayLogo: require("./Icons/logo.png"),
   newsExample: require("./Icons/news_example.png"),
   processingTime: require("./Icons/processing-time.png"),
   workInProgress: require("./Icons/work-in-progress.png"),

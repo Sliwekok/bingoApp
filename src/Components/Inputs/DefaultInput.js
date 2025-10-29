@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     height: 40,
     width: "90%",
-    color: colors.blackOlive,
+    color: colors.black,
   },
 });
 

@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "bingoApp",
-    "slug": "bingoApp",
+    "slug": "bingo",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -69,14 +69,14 @@
         }
       ]
     ],
-    "owner": "Dominik",
+    "owner": "verbum",
     "extra": {
-      "apiUrl": "http://bingo.dev-verbum.pl/api/",
-      "baseUrl": "http://bingo.dev-verbum.pl/",
-      "apiKey": "z0CwprChJLJSqPo0O2oTsx4rx8BaZS4J",
+      "apiUrl": "https://bingo.dev-verbum.pl/api/",
+      "baseUrl": "https://bingo.dev-verbum.pl/",
+      "apiKey": "hehe",
       "supportsRTL": true,
       "eas": {
-        "projectId": ""
+        "projectId": "b3ec33f3-f4aa-4f60-9e63-98713c5850b0"
       }
     }
   }

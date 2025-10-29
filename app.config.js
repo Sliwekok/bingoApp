@@ -18,6 +18,8 @@ export default ({ config }) => {
       localization: {
         defaultLocale: "pl",
       },
+      package: "com.bingo.app",
+      versionCode: 1
     },
     extra: {
       ...config.extra,

@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     height: 75,
   },
   titleText: {
-    color: colors.white,
+    color: colors.black,
   },
   inputsContainer: {
     display: "flex",
